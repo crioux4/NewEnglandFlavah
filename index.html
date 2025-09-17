@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New England Flavah</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      color: #333;
+      padding: 20px;
+    }
+
+    /* Banner */
+    header {
+  background: url("recipeblogbanner.jpg") no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  width: 100%;
+  min-height: 200px;
+  height: 40vh;  /* scales with screen height */
+  margin-bottom: 40px;
+}
+
+
+    /* Browse by Category Title */
+    .category-title-home {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .category {
+      text-align: center;
+    }
+
+    .category a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .category img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .category img:hover {
+      transform: scale(1.08);
+    }
+
+    .category p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+    }
+
+    /* Recipe Cards */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .recipe-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .recipe-content {
+      padding: 15px;
+    }
+
+    .recipe-content h2 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+
+    .recipe-content p {
+      color: #555;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #D2B48C;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #DEB887;
+    }
+ .categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 1000px;
+  background-color: #D2B48C;   /* add this line */
+  padding: 40px 20px;          /* optional: add padding inside the background */
+  border-radius: 10px;          /* optional: make edges rounded */
+}
+
+.category {
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.category img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%; /* circular */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto; /* keeps the circle centered */
+}
+
+.category p {
+  margin-top: 10px; /* closer to the circle */
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effects */
+.category:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.category:hover p {
+  color: #D2B48C; /* tan accent */
+}
+
+footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    .about-me {
+  background-color: black;
+  color: white;
+  padding: 50px 20px;
+}
+
+.about-me h2 {
+  font-family: 'Cursive', 'Brush Script MT', sans-serif;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Flex layout for text + photo */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* for smaller screens */
+}
+
+.about-text {
+  flex: 1 1 300px; /* text takes remaining space */
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-right: 20px;
+}
+
+.about-photo {
+  width: 300px;       /* width on desktop */
+  max-width: 100%;    /* scales down on smaller screens */
+  height: auto;       /* lets height scale naturally */
+  border-radius: 15px;
+  border: 5px solid #D2B48C;
+  flex-shrink: 0;     /* don’t shrink too much */
+  margin-top: 20px;
+}
+
+.email-link {
+  display: inline-block;
+  color: #D2B48C;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweak for small screens */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+ /* Text next to photo */
+.about-text {
+  flex: 1 1 300px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-right: 20px;
+  color: white;
+}
+
+
+ .about-photo {
+  width: 300px;      /* keep width */
+  height: 400px;     /* taller height */
+  object-fit: cover; /* keeps proportions and crops nicely */
+  border-radius: 15px;
+  border: 5px solid #D2B48C;
+  flex-shrink: 0;    /* don’t shrink too much */
+  margin-top: 20px;
+}
+}
+
+</style>
+
+</head>
+<body>
+
+  <!-- Banner -->
+  <header></header>
+
+  <!-- Browse by Category -->
+  <h2 class="category-title-home">Browse by Category</h2>
+ <section class="categories">
+  <div class="category">
+    <a href="soup.html">
+      <img src="kalesoup.jpg" alt="Soup">
+      <p>Soup</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="chicken.html">
+      <img src="https://via.placeholder.com/150" alt="Chicken">
+      <p>Chicken</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="sweets.html">
+      <img src="https://via.placeholder.com/150" alt="Sweets">
+      <p>Sweets</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="beef.html">
+      <img src="https://via.placeholder.com/150" alt="Beef">
+      <p>Beef</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="pork.html">
+      <img src="https://via.placeholder.com/150" alt="Pork">
+      <p>Pork</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="appetizers.html">
+      <img src="https://via.placeholder.com/150" alt="Appetizers">
+      <p>Appetizers</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="onepan.html">
+      <img src="https://via.placeholder.com/150" alt="One-Pan Dishes">
+      <p>One-Pan Dishes</p>
+    </a>
+  </div>
+  <!-- New ones added -->
+  <div class="category">
+    <a href="pasta.html">
+      <img src="https://via.placeholder.com/150" alt="Pasta">
+      <p>Pasta</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="sidedishes.html">
+      <img src="https://via.placeholder.com/150" alt="Side Dishes">
+      <p>Side Dishes</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="crockpot.html">
+      <img src="https://via.placeholder.com/150" alt="Crock-pot">
+      <p>Crock-pot</p>
+    </a>
+  </div>
+  <div class="category">
+    <a href="breakfast.html">
+      <img src="https://via.placeholder.com/150" alt="Breakfast">
+      <p>Breakfast</p>
+    </a>
+  </div>
+  <div class="category">
+  <a href="instantpot.html">
+    <img src="https://via.placeholder.com/150" alt="Instant-pot">
+    <p>Instant-pot</p>
+  </a>
+</div>
+<div class="category">
+  <a href="airfryer.html">
+    <img src="https://via.placeholder.com/150" alt="Air Fryer">
+    <p>Air Fryer</p>
+  </a>
+</div>
+<div class="category">
+  <a href="breads.html">
+    <img src="https://via.placeholder.com/150" alt="Breads">
+    <p>Breads</p>
+  </a>
+</div>
+<div class="category">
+  <a href="sandwiches.html">
+    <img src="https://via.placeholder.com/150" alt="Sandwiches">
+    <p>Sandwiches</p>
+  </a>
+</div>
+
+</section>
+
+     
+
+  <h1 style="text-align:center;">Some of Our Favorites</h1>
+  <hr>
+  <!-- Recipe Cards -->
+  <div class="container">
+    <div class="grid">
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x250.png?text=Cookies" alt="Chocolate Chip Cookies">
+        <div class="recipe-content">
+          <h2>Chocolate Chip Cookies</h2>
+          <p>Soft, chewy, and loaded with chocolate chips.</p>
+          <a href="chocolatechipcookies.html" class="btn">Read Recipe</a>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x250.png?text=Tortillas" alt="Homemade Tortillas">
+        <div class="recipe-content">
+          <h2>Homemade Tortillas</h2>
+          <p>Fluffy, soft tortillas for tacos and burritos.</p>
+          <a href="#" class="btn">Read Recipe</a>
+        </div>
+      </div>
+
+      <div class="recipe-card">
+        <img src="https://via.placeholder.com/400x250.png?text=Soup" alt="Tomato Soup">
+        <div class="recipe-content">
+          <h2>Creamy Tomato Soup</h2>
+          <p>Rich soup made with roasted tomatoes and herbs.</p>
+          <a href="#" class="btn">Read Recipe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="about-me">
+  <h2>About Me</h2>
+  <div class="about-content">
+    <div class="about-text">
+      <p>
+        Hi! I'm Crystal, and I love sharing my favorite recipes here on my blog. From sweet treats to savory meals, I hope you find something you enjoy!  
+      </p>
+      <a href="mailto:youremail@example.com" class="email-link">Contact Me</a>
+    </div>
+    <img src="mypic.jpg" alt="Me" class="about-photo">
+  </div>
+</section>
+
+  <footer>
+    <p>© 2025 Crystal's Kitchen Table | Made with ❤️</p>
+  </footer>
+
+</body>
+</html>
