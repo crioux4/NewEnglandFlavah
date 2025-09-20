@@ -290,9 +290,7 @@
     <a href="chicken.html" class="btn">← Back to Chicken</a>
   </div>
 
-    
 
-   <!-- Your existing HTML content -->
 
 <!-- Reviews Section -->
 <section class="reviews-section">
@@ -323,13 +321,10 @@
   </div>
 </section>
 
-<!-- Put your script here, right before the closing </body> -->
+<!-- Script for adding reviews and replies -->
 <script>
 const form = document.querySelector('.review-form');
 const reviewsList = document.querySelector('.reviews-list');
-
-// Owner password
-const OWNER_PASSWORD = "admin123";
 
 // Helper to create a review element
 function createReview(name, rating, comment, parent=null) {
@@ -339,8 +334,6 @@ function createReview(name, rating, comment, parent=null) {
   reviewDiv.innerHTML = `
     <p><strong>${name}</strong> - ${'★'.repeat(rating)}</p>
     <p class="comment-text">${comment}</p>
-    <button class="edit-btn">Edit</button>
-    <button class="delete-btn">Delete</button>
     <button class="reply-btn">Reply</button>
     <div class="replies-list" style="margin-left: 2rem;"></div>
   `;
@@ -362,51 +355,19 @@ form.addEventListener('submit', function(e) {
   form.reset();
 });
 
-// Event delegation for edit, reply, delete
+// Event delegation for replies only
 reviewsList.addEventListener('click', function(e) {
+  if (!e.target.classList.contains('reply-btn')) return;
+
   const reviewDiv = e.target.closest('.review');
-  if (!reviewDiv) return;
-
-  // Edit comment (only the author)
-  if (e.target.classList.contains('edit-btn')) {
-    const currentUser = prompt("Enter your name to edit your comment:");
-    if (currentUser === reviewDiv.dataset.user) {
-      const newComment = prompt("Edit your comment:", reviewDiv.querySelector('.comment-text').textContent);
-      if (newComment !== null) {
-        reviewDiv.querySelector('.comment-text').textContent = newComment;
-      }
-    } else {
-      alert("You can only edit your own comment.");
-    }
-  }
-
-  // Reply to comment
-  if (e.target.classList.contains('reply-btn')) {
-    const replyName = prompt("Enter your name for the reply:");
-    const replyComment = prompt("Write your reply:");
-    if (replyName && replyComment) {
-      createReview(replyName, 0, replyComment, reviewDiv);
-    }
-  }
-
-  // Delete comment
-  if (e.target.classList.contains('delete-btn')) {
-    const currentUser = prompt("Enter your name to delete this comment:");
-    if (currentUser === reviewDiv.dataset.user) {
-      // User deleting their own comment
-      reviewDiv.remove();
-    } else {
-      // Only owner can delete other comments
-      const password = prompt("Enter owner password to delete this comment:");
-      if (password === OWNER_PASSWORD) {
-        reviewDiv.remove();
-      } else {
-        alert("You cannot delete this comment.");
-      }
-    }
+  const replyName = prompt("Enter your name for the reply:");
+  const replyComment = prompt("Write your reply:");
+  if (replyName && replyComment) {
+    createReview(replyName, 0, replyComment, reviewDiv);
   }
 });
 </script>
+
 
 </body>
 </html>
