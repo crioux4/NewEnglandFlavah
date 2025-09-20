@@ -210,7 +210,8 @@
     <h2>Cooking Notes & Tips</h2>
     <p>I discovered this recipe when I accidently bought a large tub of plain greek yogurt thinking it was vanilla. 
         Prior to that I never cooked chicken with yogurt, and boy was I missing out! I altered the recipe I found online
-        because I didn't have all the ingredients on hand. Origanally the recipe asked for fresh lemon juice, all I hand
+        because I didn't have all the ingredients on hand. If you have fresh limes on hand I suggest using them,
+        Also adding the lime zest adds to the flavor. Origanally the recipe asked for fresh lemon juice, all I hand
         was bottled lime juice. I loved the flavor of the lime with the optional cayenne pepper. Oh my goodness
         this chicken was so good the first time only after 4 hours marinating, but I definitly suggest you try it overnight! 
         These are also awesome preppared as kabobs and cooked on the grill!
@@ -258,8 +259,9 @@
       <li>6-8 boneless, skinless, chicken thighs</li>
       <li>1 cup plain greek yogurt or regular plain yogurt</li>
       <li>3 cloves garlic</li>
-      <li>3 TBS lime juice or the juice of 1 medium lime</li>
+      <li>3 TBS lime juice or the juice of 1 medium lime and zest</li>
       <li>1 TBS extra virgin olive oil</li>
+      <li>2 tsp honey</li>
       <li>1 tsp smoked paprika</li>
       <li>1 tsp ground cumin</li>
       <li>1 tsp ground coriander</li>
@@ -272,29 +274,33 @@
 
     <h2>Instructions</h2>
     <ol>
-      <li>Step 1: ...</li>
-      <li>Step 2: ...</li>
-      <li>Step 3: ...</li>
-      <li>Step 4: ...</li>
-      <li>Step 5: ...</li>
-      <li>Step 6: ...</li>
+      <li>Step 1: Gather all ingredients and mix in a large bowl.
+        Add and make sure thighs are coated well. Cover and let in fridge 1-4 hours, or overnight.
+      </li>
+      <li>Step 2: Remove chicken and let it rest covered on the counter for 20 mins, then preheat
+        over to 400&deg;F. 
+      </li>
+      <li>Step 3: Line sheet pan with foil and spray with non-stick spray. Spread chicken out flat on pan.</li>
+      <li>Step 4: Bake for 20-30 mins, checking internal tempature after 20mins. Should be atleast 165&deg;F</li>
+      <li>Step 5: Let rest 5 mins before serving.</li>
+      <li>Step 6: Enjoy!</li>
     </ol>
 
     <a href="index.html" class="btn">← Back to Categories</a>
     <a href="chicken.html" class="btn">← Back to Chicken</a>
   </div>
-<!-- Reviews / Ratings Section -->
+<!-- Reviews Section -->
 <section class="reviews-section">
   <div class="container">
     <h2>Leave a Rating & Comment</h2>
 
-    <!-- Rating Form -->
+    <!-- Review Form -->
     <form class="review-form">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <input type="text" id="name" placeholder="Your name" required>
 
       <label for="rating">Rating:</label>
-      <select id="rating" name="rating" required>
+      <select id="rating" required>
         <option value="">Select rating</option>
         <option value="5">★★★★★ 5</option>
         <option value="4">★★★★ 4</option>
@@ -304,24 +310,87 @@
       </select>
 
       <label for="comment">Comment:</label>
-      <textarea id="comment" name="comment" placeholder="Write your review here..." required></textarea>
+      <textarea id="comment" placeholder="Write your review..." required></textarea>
 
       <button type="submit" class="btn">Submit Review</button>
     </form>
 
-    <!-- Example of existing reviews -->
     <div class="reviews-list">
-      <div class="review">
-        <strong>Marky S.</strong> ★★★★★
-        <p>These were great on the grill!</p>
-      </div>
-      <div class="review">
-        <strong>Jess L</strong> ★★★★☆
-        <p>Was in a rush, used the air fryer and only marinated for an hour and they were still good</p>
-      </div>
+      <!-- Reviews will appear here -->
     </div>
   </div>
 </section>
+
+<script>
+const form = document.querySelector('.review-form');
+const reviewsList = document.querySelector('.reviews-list');
+
+// For simplicity, set the website owner password here
+const OWNER_PASSWORD = "admin123";
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const rating = document.getElementById('rating').value;
+  const comment = document.getElementById('comment').value;
+
+  // Create review element
+  const reviewDiv = document.createElement('div');
+  reviewDiv.classList.add('review');
+  reviewDiv.dataset.user = name; // track who created it
+  reviewDiv.innerHTML = `
+    <p><strong>${name}</strong> - ${'★'.repeat(rating)}</p>
+    <p class="comment-text">${comment}</p>
+    <button class="edit-btn">Edit</button>
+    <button class="delete-btn">Delete (Owner only)</button>
+  `;
+
+  reviewsList.appendChild(reviewDiv);
+  form.reset();
+});
+
+// Event delegation for edit and delete
+reviewsList.addEventListener('click', function(e) {
+  const reviewDiv = e.target.closest('.review');
+  if (!reviewDiv) return;
+
+  // Edit functionality
+  if (e.target.classList.contains('edit-btn')) {
+    const currentUser = prompt("Enter your name to edit your comment:");
+    if (currentUser === reviewDiv.dataset.user) {
+      const newComment = prompt("Edit your comment:", reviewDiv.querySelector('.comment-text').textContent);
+      if (newComment !== null) {
+        reviewDiv.querySelector('.comment-text').textContent = newComment;
+      }
+    } else {
+      alert("You can only edit your own comment.");
+    }
+  }
+
+  // Delete functionality (owner only)
+  if (e.target.classList.contains('delete-btn')) {
+    const password = prompt("Enter owner password to delete this comment:");
+    if (password === OWNER_PASSWORD) {
+      reviewDiv.remove();
+    } else {
+      alert("Incorrect password. Only the website owner can delete comments.");
+    }
+  }
+});
+</script>
+
+<style>
+.reviews-section { padding: 2rem; background: #f9f9f9; }
+.review-form label { display: block; margin-top: 1rem; }
+.review-form input, .review-form select, .review-form textarea { width: 100%; padding: 0.5rem; margin-top: 0.25rem; }
+.review-form .btn { margin-top: 1rem; padding: 0.5rem 1rem; }
+.review { margin-top: 1rem; padding: 1rem; background: #fff; border: 1px solid #ddd; }
+.review button { margin-right: 0.5rem; margin-top: 0.5rem; }
+.comment-text { margin-top: 0.5rem; }
+</style>
+
+
 
   <footer>
     <p>© 2025 New England Flavah | Made with ❤️</p>
