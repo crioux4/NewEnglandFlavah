@@ -19,18 +19,66 @@
       padding: 20px;
     }
 
-    /* Banner */
-    header {
-  background: url("recipeblogbanner.jpg") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
-  width: 100%;
-  min-height: 200px;
-  height: 40vh;  /* scales with screen height */
-  margin-bottom: 40px;
+header {
+  height: 50px;
+  background-color: #f0f0f0; /* temp background to see the area */
 }
+
+.image-with-text {
+  display: flex;
+  align-items: flex-start; 
+  gap: 30px;
+  margin: 30px;
+}
+
+.image-with-text {
+  display: flex;             /* keeps items in a row */
+  flex-direction: row;       /* explicitly horizontal */
+  align-items: flex-start;   /* aligns top edges */
+  gap: 30px;                 /* space between image and text */
+  margin: 30px;
+  flex-wrap: nowrap;         /* prevents stacking */
+}
+
+.image-with-text img {
+  width: 500x;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  flex-shrink: 0;           /* keeps image from shrinking */
+}
+
+.text-box {
+  flex: 1;                   /* takes up remaining horizontal space */
+  padding: 20px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: "Trebuchet MS", sans-serif;
+  line-height: 1.6;
+}
+
+.text-box h1 {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.text-box .highlight {
+  font-weight: bold;
+  color: #000;
+}
+
+
+.text-box .highlight {
+  font-weight: bold;
+  color: #000; /* draws attention to "wicked tasty" */
+}
+
+
+
 
 
     /* Browse by Category Title */
@@ -286,6 +334,24 @@ footer {
 <div class="under-construction">
   🚧 This website is still under construction. Thanks for visiting! 🚧
 </div>
+
+<section class="image-with-text">
+  <img src="newsmallbanner.jpg" alt="Banner Image">
+  <div class="text-box">
+    <h1>Welcome to my recipe blog!</h1>
+    <p>
+      Hey there! Thanks for stoppin’ by. Around here, food’s all about comfort, family, 
+      and a good laugh while you’re cookin’. I’ll be sharin’ some of my favorite recipes—simple, 
+      hearty, and <span class="highlight">wicked tasty</span>.  
+      Nothin’ too fancy, just the kind of stuff you’d wanna sit down and eat after a long day.  
+      So grab a coffee, pull up a chair, and let’s get cookin’.
+    </p>
+  </div>
+</section>
+
+
+
+
 
   <!-- Browse by Category -->
   <h2 class="category-title-home">Browse by Category</h2>
