@@ -27,55 +27,51 @@ header {
 
 .image-with-text {
   display: flex;
-  align-items: flex-start; 
+  flex-direction: row;
+  align-items: stretch;   /* makes children stretch to same height */
   gap: 30px;
   margin: 30px;
 }
 
-.image-with-text {
-  display: flex;             /* keeps items in a row */
-  flex-direction: row;       /* explicitly horizontal */
-  align-items: flex-start;   /* aligns top edges */
-  gap: 30px;                 /* space between image and text */
-  margin: 30px;
-  flex-wrap: nowrap;         /* prevents stacking */
-}
-
 .image-with-text img {
-  width: 500x;
-  height: 300px;
-  object-fit: cover;
+  width: 300px;           /* fix width */
+  height: auto;           /* allow height to stretch with flex */
   border-radius: 8px;
+  object-fit: cover;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  flex-shrink: 0;           /* keeps image from shrinking */
+  flex-shrink: 0;
 }
 
 .text-box {
-  flex: 1;                   /* takes up remaining horizontal space */
+  flex: 1;                /* takes remaining horizontal space */
+  display: flex;           /* make text-box a flex container */
+  flex-direction: column;  /* stack header and paragraph */
+  justify-content: center; /* vertically center content */
   padding: 20px;
   border-radius: 12px;
   background: #f0f0f0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: "Trebuchet MS", sans-serif;
   line-height: 1.6;
 }
 
-.text-box h1 {
-  margin-bottom: 10px;
-  font-size: 1.8rem;
-  color: #000;
+/* Mobile stacking */
+@media screen and (max-width: 768px) {
+  .image-with-text {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-with-text img,
+  .text-box {
+    width: 90%;
+  }
+
+  .text-box {
+    padding: 15px;
+  }
 }
 
-.text-box .highlight {
-  font-weight: bold;
-  color: #000;
-}
 
-
-.text-box .highlight {
-  font-weight: bold;
-  color: #000; /* draws attention to "wicked tasty" */
-}
 
 
 
