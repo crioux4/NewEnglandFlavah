@@ -1,0 +1,165 @@
+/* Global Styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #D2B48C;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+header h1 {
+  font-family: Baskerville, serif;
+  font-size: 2.8rem;
+  color: white;
+  margin: 0;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.7),
+    0 0 10px rgba(0,0,0,0.3);
+}
+
+/* Main Container */
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Blog Section */
+.blog-section {
+  background: #fff8f0;
+  padding: 30px 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+}
+
+.blog-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.blog-image {
+  display: block;
+  margin: 15px auto;
+  width: 50%;          /* Smaller step images */
+  max-width: 350px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Recipe Hero Image */
+.recipe-image {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin: 15px auto 20px auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Jump to Recipe Link */
+.jump-link {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #D2B48C;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.jump-link:hover {
+  color: #b8976d;
+}
+
+/* Headings */
+h2 {
+  margin-top: 20px;
+  color: #D2B48C;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+/* Lists */
+ul, ol {
+  margin: 10px 0 20px 20px;
+}
+
+/* Buttons & Links */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  background: #D2B48C;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  margin: 10px 10px 10px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #DEB887;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* PRINTABLE RECIPE MODE */
+@media print {
+  /* Hide everything except recipe container */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the recipe box */
+  #recipe, #recipe * {
+    visibility: visible;
+  }
+
+  /* Position the recipe at the top for printing */
+  #recipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Clean print background */
+  body {
+    background: white !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  a.btn,
+  button.btn {
+    display: none; /* Hide nav/print buttons on printed page */
+  }
+}
+

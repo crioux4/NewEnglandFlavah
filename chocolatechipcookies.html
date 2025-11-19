@@ -33,6 +33,18 @@
 
 }
 
+.blog-image {
+  display: block;
+  margin: 15px auto;
+  width: 50%;          /* 👈 smaller size */
+  max-width: 350px;    /* 👈 stops them from blowing up */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+
  header h1 {
   font-family: Baskerville, serif;
   font-size: 2.8rem;
@@ -52,12 +64,35 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .recipe-image {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      object-fit: cover;
-    }
+   .recipe-image {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.jump-link {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #D2B48C;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.jump-link:hover {
+  color: #b8976d;
+}
+
+.recipe-image {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
 
     h2 {
       margin-top: 20px;
@@ -92,27 +127,111 @@
       font-size: 0.9rem;
       color: #777;
     }
+
+    /* PRINTABLE RECIPE MODE */
+@media print {
+
+  /* Hide everything except recipe container */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the recipe box */
+  #recipe, #recipe * {
+    visibility: visible;
+  }
+
+  /* Position the recipe at the top for printing */
+  #recipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Optional: clean look for printing */
+  body {
+    background: white !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  a.btn {
+    display: none; /* Hide buttons on print */
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>Soft and Chewy Chocolate Chip Cookies</h1>
   </header>
+<div>
+   <!-- Jump to Recipe -->
+  <a href="#recipe" class="jump-link">↓ Jump to Recipe ↓</a>
+  <img src="images/cookedcookiedone.jpg" alt="chocolatechipcookies" class="recipe-image">
+<!-- Blog / Cooking Notes Section -->
+ </div>
 
-  <div class="blog">
-  <p>Text here about baking</p>
-
-  </div>
-
+<section class="blog-section">
   <div class="container">
-    <img src="https://via.placeholder.com/900x400.png?text=Chocolate+Chip+Cookies" 
+    <h2>Cooking Notes & Tips</h2>
+    <p>I spent a long time chasing the perfect cookie—soft and chewy in the center with that tiny, satisfying crunch on the edges. After more failed batches than I care to admit, I finally found the one. Now my family won’t accept anything less the second they hear me preheating the oven.
+    </p>
+   
+    <div class="blog-images">
+      <img src="images/cookieingredients.jpg" alt="Gather Ingredients" class="blog-image">
+      <p>Gather all your ingredients. Preheat oven to 325°F, and line a pan with cookie sheet parchment paper.
+</p>
+
+
+ <p>Sift together dry ingredients in a bowl and set aside.</p>
+      <p>With a hand or stand mixer, cream together sugars and butter. </p>
+
+
+      <p>Then add milk, vanilla, and egg. Mix by hand until well blended, but avoid overmixing.
+</p>
+<img src="images/choccookeggmilk.jpg" alt="Mix all together by hand" class="blog-image">
+
+
+ <p>Add dry ingredients and mix together by hand until all flour is just about dissolved.It will look crumbly.</p>
+
+
+
+
+      <img src="images/cookiedoughbeforechips.jpg" alt="crumbly dough" class="blog-image">
+      <p>Then add the chips and continue hand mixing them in until fully incorporated.</p>
+            <img src="images/addchips.jpg" alt="Adding chicken to pan" class="blog-image">
+    </div>
+   
+    <p>Tip: Over-mixing any type of flour mixture for cakes and cookies leads to a denser baked good.</p>
+  
+
+
+ <p>You can chill the dough in the fridge until later use. If using the right way, roll into golf ball-sized balls, and spread them an inch apart. This dough doesn’t spread like others because it’s drier, which helps it stay chewy. You can keep them like this for smaller, fatter cookies or lightly flatten them for wider cookies.</p>
+            <img src="images/cookieballs.jpg" alt="adding cookies to pan" class="blog-image">
+<p>Bake for 10 mins and check if cookies are no longer shiny. These won’t brown very much. I never let them go longer than 13 minutes.</p>
+</section>
+</div>
+
+  
+  <div class="container" id="recipe">
+
+    <h2>Soft and Chewy Chocolate Chip Cookies</h2>
+    <img src="images/cookedckookiesheet.jpg" 
          alt="Chocolate Chip Cookies" class="recipe-image">
+<button onclick="window.print();" class="btn">🖨 Print Recipe</button>
 
     <p>Soft, chewy, and loaded with gooey chocolate chips — these cookies are a family favorite! 
        Perfect with a glass of milk or a cup of coffee.</p>
 	<p>Makes about 2 dozen</p>
 
-    <h2>Ingredients</h2>
+    <h2 id="recipe">Ingredients</h2>
+
     <ul>
       <li>12 TBS salted butter, room tempature</li>
       <li>3/4 cup brown sugar</li>
@@ -137,7 +256,9 @@
       <li>Cool on pan for 10 mins then move on to a wire rack. Enjoy!</li>
     </ol>
 
-    <a href="file:///C:/Users/Kryzt/OneDrive/Desktop/chatrecipe.html#" class="btn">← Back to Recipes</a>
+<a href="index.html" class="btn">← Back to Categories</a>
+    <a href="sweets.html" class="btn">← Back to Chicken</a>
+
   </div>
 
   <footer>

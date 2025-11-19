@@ -19,48 +19,83 @@
       color: white;
       text-align: center;
       padding: 20px;
+     
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
+  .blog {
+    max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+   
+
+}
+
+.blog-image {
+  display: block;
+  margin: 15px auto;
+  width: 50%;          /* 👈 smaller size */
+  max-width: 350px;    /* 👈 stops them from blowing up */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+
+
+ header h1 {
+  font-family: Baskerville, serif;
+  font-size: 2.8rem;
+  color: white;
+  text-shadow: 
+    2px 2px 4px rgba(0,0,0,0.7),  
+    0 0 10px rgba(0,0,0,0.3);     
+}
+
 
     .container {
       max-width: 900px;
       margin: 30px auto;
       background: white;
-      padding: 25px 30px;
+      padding: 20px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* Jump to Recipe Link */
-    .jump-link {
-      display: block;
-      text-align: center;
-      margin: 15px 0;
-      font-weight: bold;
-      color: #D2B48C;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+   .recipe-image {
+  width: 80%;
+  max-width: 500px;
+  display: block;
+  margin: 0 auto 20px auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
 
-    .jump-link:hover {
-      color: #b8976d;
-    }
+.jump-link {
+  display: block;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+  color: #D2B48C;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
 
-    .recipe-image {
-      width: 80%;       /* slightly smaller */
-      max-width: 500px;
-      display: block;
-      margin: 0 auto 20px auto;
-      border-radius: 12px;
-      object-fit: cover;
-    }
+.jump-link:hover {
+  color: #b8976d;
+}
+
+.recipe-image {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
 
     h2 {
-      margin-top: 30px;
+      margin-top: 20px;
       color: #D2B48C;
       border-bottom: 2px solid #eee;
       padding-bottom: 5px;
@@ -82,7 +117,7 @@
     }
 
     .btn:hover {
-      background: #b8976d;
+      background: #DEB887;
     }
 
     footer {
@@ -93,108 +128,45 @@
       color: #777;
     }
 
-    @media (max-width: 600px) {
-      .recipe-image {
-        width: 100%;
-      }
-    }
-    .blog-section {
-  background: #fff8f0; /* soft background to stand out */
-  padding: 30px 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-}
+    /* PRINTABLE RECIPE MODE */
+@media print {
 
-.blog-section h2 {
-  color: #D2B48C;
-  margin-bottom: 15px;
-}
-
-.blog-section p {
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.blog-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.blog-image {
-  width: 80%;      /* bigger than before, scales with container */
-  max-width: 600px; /* prevents it from being too huge on big screens */
-  height: auto;     /* keeps proportions */
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .blog-image {
-    width: 100%;
-    height: auto;
+  /* Hide everything except recipe container */
+  body * {
+    visibility: hidden;
   }
-}
-.reviews-section {
-  background: #fff8f0; /* soft tan background */
-  padding: 40px 20px;
-  margin-top: 40px;
-  border-radius: 12px;
-}
 
-.reviews-section h2 {
-  color: #D2B48C;
-  margin-bottom: 20px;
-}
+  /* Show only the recipe box */
+  #recipe, #recipe * {
+    visibility: visible;
+  }
 
-.review-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.review-form input,
-.review-form select,
-.review-form textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.review-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.review-form .btn {
-  width: 150px;
-  align-self: flex-start;
-}
-
-.reviews-list .review {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.reviews-list .review strong {
-  color: #D2B48C;
-}
-
-@media (max-width: 600px) {
-  .review-form .btn {
+  /* Position the recipe at the top for printing */
+  #recipe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+  }
+
+  /* Optional: clean look for printing */
+  body {
+    background: white !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  a.btn {
+    display: none; /* Hide buttons on print */
   }
 }
 
   </style>
+  
+
 </head>
 <body>
   <header>
@@ -248,6 +220,7 @@
          and spices. Perfect for a simple weeknight dinner or a cozy family meal, this dish is 
          full of flavor without being fussy. Serve it with rice, roasted veggies, or a fresh salad for a 
          satisfying, wholesome plate.</p>
+<button onclick="window.print();" class="btn">🖨 Print Recipe</button>
 
     <p></p>  
     <p>Serves 4-6</p>
