@@ -3,275 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portuguese Kale Soup</title>
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fafafa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
+  <title><!-- Recipe Name Here --> | New England Flavah</title>
+ <link rel="stylesheet" href="styles.css">
 
-    header {
-      background: #D2B48C;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 25px 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* Jump to Recipe Link */
-    .jump-link {
-      display: block;
-      text-align: center;
-      margin: 15px 0;
-      font-weight: bold;
-      color: #D2B48C;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .jump-link:hover {
-      color: #b8976d;
-    }
-
-    .recipe-image {
-      width: 80%;       /* slightly smaller */
-      max-width: 500px;
-      display: block;
-      margin: 0 auto 20px auto;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    h2 {
-      margin-top: 30px;
-      color: #D2B48C;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-    }
-
-    ul, ol {
-      margin: 10px 0 20px 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      background: #D2B48C;
-      color: #fff;
-      padding: 10px 16px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      transition: background 0.3s ease;
-    }
-
-    .btn:hover {
-      background: #b8976d;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      .recipe-image {
-        width: 100%;
-      }
-    }
-    .blog-section {
-  background: #fff8f0; /* soft background to stand out */
-  padding: 30px 20px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-}
-
-.blog-section h2 {
-  color: #D2B48C;
-  margin-bottom: 15px;
-}
-
-.blog-section p {
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.blog-images {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.blog-image {
-  width: 80%;      /* bigger than before, scales with container */
-  max-width: 600px; /* prevents it from being too huge on big screens */
-  height: auto;     /* keeps proportions */
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 600px) {
-  .blog-image {
-    width: 100%;
-    height: auto;
-  }
-}
-.reviews-section {
-  background: #fff8f0; /* soft tan background */
-  padding: 40px 20px;
-  margin-top: 40px;
-  border-radius: 12px;
-}
-
-.reviews-section h2 {
-  color: #D2B48C;
-  margin-bottom: 20px;
-}
-
-.review-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.review-form input,
-.review-form select,
-.review-form textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.review-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-.review-form .btn {
-  width: 150px;
-  align-self: flex-start;
-}
-
-.reviews-list .review {
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.reviews-list .review strong {
-  color: #D2B48C;
-}
-
-@media (max-width: 600px) {
-  .review-form .btn {
-    width: 100%;
-  }
-}
-
-  </style>
 </head>
 <body>
   <header>
-    <h1>Portuguese Kale Soup</h1>
+    <h1 class="recipe-title"><!-- Recipe Name Here --></h1>
   </header>
 
-  <!-- Jump to Recipe -->
-  <a href="#recipe" class="jump-link">↓ Jump to Recipe ↓</a>
-  <img src="kalesoup.jpg" alt="Portuguese Kale Soup" class="recipe-image">
-<!-- Blog / Cooking Notes Section -->
-<section class="blog-section">
-  <div class="container">
-    <h2>Cooking Notes & Tips</h2>
-    <p>Here I’ll share some behind-the-scenes pictures and tips while making this soup!</p>
-    
-    <div class="blog-images">
-      <img src="step1.jpg" alt="Chopping kale" class="blog-image">
-      <p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</p>
-      <img src="step2.jpg" alt="Cooking the potatoes" class="blog-image">
-      <p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</p>
-      <img src="step3.jpg" alt="Adding chourico" class="blog-image">
-      <p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</p>
-    </div>
-    
-    <p>Tip: Be careful not to overcook the kale—it should stay bright green and tender. Also, using a mix of beef and chicken gives a richer flavor.</p>
+  <!-- Hero + Jump to Recipe -->
+  <div>
+    <a href="#recipe" class="jump-link">↓ Jump to Recipe ↓</a>
+    <img src="images/your-hero-image.jpg" 
+         alt="Hero image for this recipe" 
+         class="recipe-image">
   </div>
-</section>
 
+  <!-- Blog / Story / Cooking Notes Section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2>Cooking Notes & Tips</h2>
+      <p><!-- Write your story, why you love this recipe, tips, etc. --></p>
+
+      <div class="blog-images">
+        <!-- Example step block, duplicate as needed -->
+        <img src="images/step-1.jpg" alt="Step 1 description" class="blog-image">
+        <p><!-- Step 1 explanation goes here. --></p>
+
+        <!-- Add more images + text as needed
+        <img src="images/step-2.jpg" alt="Step 2 description" class="blog-image">
+        <p>Step 2 text...</p>
+        -->
+      </div>
+
+      <p><!-- Extra tip or note can go here. --></p>
+    </div>
+  </section>
+
+  <!-- Recipe Card / Printable Section -->
   <div class="container" id="recipe">
-    
+    <h2><!-- Recipe Name Here --></h2>
 
-    <p><b>Portuguese Kale Soup (Caldo Verde)</b> is warm, comforting, and packed with flavor. 
-    This classic Portuguese kale soup is a delicious blend of tender kale, creamy potatoes, chunks of tender beef or chicken, 
-    and savory chourico. Perfect for cozy evenings, or when you're feeling under the weather. It’s simple to make but bursting with rich, hearty taste. A bowl of this soup feels like a hug in a bowl — light yet satisfying, with just the right amount of spice and greens.</p>
+    <img src="images/finished-dish.jpg" 
+         alt="Finished dish photo" 
+         class="recipe-image">
 
-    <p>Don't forget the bread and buttah!</p>  
-    <p>Serves 6-8</p>
+    <button onclick="window.print();" class="btn">🖨 Print Recipe</button>
+
+    <p><!-- Short description of the recipe. --></p>
+    <p><!-- Yield, e.g. "Serves 4" or "Makes 2 dozen". --></p>
+    <p>Prep Time: <!-- e.g. 15 mins --></p>
+    <p>Cook Time: <!-- e.g. 25 mins --></p>
+    <p>Total Time: <!-- optional --></p>
 
     <h2>Ingredients</h2>
     <ul>
-      <li>1lb washed and chopped kale</li>
-      <li>1 medium yellow onion, diced</li>
-      <li>2 cloves garlic</li>
-      <li>10 cups chicken broth</li>
-      <li>4 TBS extra virgin olive oil, separated</li>
-      <li>1lb stew meat or 4 cups chopped cooked chicken, or half beef half chicken</li>
-      <li>1 can red kidney beans or garbanzo beans, drained (optional)</li>
-      <li>4 cups diced potatoes</li>
-      <li>1/2lb chourico, ground or chopped</li>
+      <li><!-- Ingredient 1 --></li>
+      <li><!-- Ingredient 2 --></li>
+      <li><!-- Ingredient 3 --></li>
+      <!-- Add more as needed -->
     </ul>
 
     <h2>Instructions</h2>
     <ol>
-      <li>Step 1: ...</li>
-      <li>Step 2: ...</li>
-      <li>Step 3: ...</li>
-      <li>Step 4: ...</li>
-      <li>Step 5: ...</li>
-      <li>Step 6: ...</li>
+      <li><!-- Step 1 instructions. --></li>
+      <li><!-- Step 2 instructions. --></li>
+      <li><!-- Step 3 instructions. --></li>
+      <!-- Add more as needed -->
     </ol>
 
     <a href="index.html" class="btn">← Back to Categories</a>
-    <a href="index.html" class="btn">← Back to Recipes</a>
+    <a href="CATEGORY-PAGE.html" class="btn">← Back to <!-- Category Name --></a>
   </div>
 
-
   <footer>
-    <p>© 2025 My Recipe Blog | Made with ❤️</p>
+    <p>© 2025 New England Flavah | Made with ❤️</p>
   </footer>
 </body>
 </html>
